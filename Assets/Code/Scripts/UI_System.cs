@@ -32,6 +32,7 @@ namespace UI
         void Start()
         {
             screens = GetComponentsInChildren<UI_Screen>(true);
+            InitializeScreens();
 
             if(m_StartScreen)
             {
@@ -100,6 +101,14 @@ namespace UI
         IEnumerator WaitToLoadScene(int SceneIndex)
         {
             yield return null;
+        }
+
+        void InitializeScreens()
+        {
+            foreach(var screen in screens)
+            {
+                screen.gameObject.SetActive(true);
+            }
         }
         #endregion
     }
